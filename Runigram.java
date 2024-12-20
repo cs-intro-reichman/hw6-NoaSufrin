@@ -242,6 +242,7 @@ public class Runigram {
 		for (int i = 0; i < n; i++) {
 			double alpha = (double) (n - i) / (double) n;
 			display(blend(source, newImage, alpha));
+			StdDraw.pause(500);
 		}
 	}
 	
