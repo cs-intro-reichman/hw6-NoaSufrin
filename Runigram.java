@@ -251,7 +251,7 @@ public class Runigram {
 				}
 			}
 			Runigram.display(newImage);
-			StdDraw.pause(500);
+			//StdDraw.pause(500);
 		}
 	}
 	
