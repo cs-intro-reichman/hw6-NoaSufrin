@@ -46,6 +46,7 @@ public class Runigram {
 		image = blend(tinypic, tinypic, 0.7);
 		System.out.println();
 		print(image);
+
 		
 				
 		//// Write here whatever code you need in order to test your work.
@@ -235,23 +236,13 @@ public class Runigram {
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
 		//// Replace this comment with your code
-		if (source.length != target.length || source[0].length != target[0].length) {
-			scaled(target, source.length, source[0].length);
-		}
-		double alpha = 0.0;
 		Color[][] newImage = new Color [source.length][source[0].length];
-		
-		for (int number = 0; number <= n; number++) {
-			for (int i = 0; i < target.length; i++) {
-				for (int j = 0; j < target[0].length; j++) {
-					Color c1 = target[i][j];
-					Color c2 = source[i][j];
-					alpha = (number - n) / number;
-					newImage[i][j] = blend(c1, c2, alpha);
-				}
-			}
-			Runigram.display(newImage);
-			//StdDraw.pause(500);
+		newImage = scaled(target, source[0].length, source.length);
+
+		for (int i = 0; i < n; i++) {
+			double alpha = (double) (n - i) / (double) n;
+			display(blend(source, newImage, alpha));
+			StdDraw.pause(500);
 		}
 	}
 	
